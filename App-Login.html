@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PASA-HERE-O! - App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Roboto&family=Proxima+Nova:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <a class="logo"><img src="https://i.ibb.co/kH2yGn7/MB-Logo.png" alt="MB-Logo"></a>
+    <h1 class="txtWelcome">Welcome</h1>
+
+    <div class="container">
+        <p class="txtLogin">Login</p>
+        <div class="forms">
+            <div class="input-icon">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" />
+            </div>
+            <br>
+            <div class="input-icon">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" />
+            </div>
+            <label class="lblRememberMe"><input type="checkbox">Remember me</label>
+            <a href="App-ForgotPassword.html"><label class="lblForgotPassword">Forgot password?</label></a>
+            <a href="UI.html"><button id="login">LOGIN</button></a>
+            <p class="txtNoAccount">Don't have an account? <a href="App-SignUp.html" id="signup">Sign Up</a></p>
+            <p class="txtOrLoginInWith">Or login in with</p>
+            <div class="social">
+                <a href="facebook_login_url"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<style>
+    @media screen and (max-width: 415px) and (max-height: 897px) {
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://i.ibb.co/86qT6BZ/pexels-jovan-curayag-3361178.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.5), rgba(2, 0, 53, 0.3));
+            content: "";
+            position: fixed;
+            z-index: 1;
+        }
+
+        a.logo {
+            margin: auto;
+            margin-bottom: 15vh;
+            text-align: center;
+            display: block;
+            position: relative;
+            z-index: 2;
+            transform: translateY(-0.5vh);
+        }
+
+        a.logo img {
+            width: 50vw;
+            height: auto;
+            margin: auto;
+            display: block;
+            filter: drop-shadow(0.2vh 0.2vh 0.8vh rgba(0, 0, 0, 0.5));
+        }
+
+        h1.txtWelcome {
+            margin: auto;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18.25vw;
+            font-weight: bold;
+            letter-spacing: 0.2vw;
+            text-shadow: 1vw 1vw 1vw rgba(0, 0, 0, 0.5);
+            color: #f5bf03;
+            text-align: center;
+            display: block;
+            position: relative;
+            z-index: 3;
+            transform: translateY(-23.5vh);
+        }
+
+        .container {
+            margin: auto;
+            width: 96%;
+            max-width: 414px;
+            height: 61.5vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 4.5vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0.4vh 0.4vh 1vh #020035, -0.1vh -0.1vh 1vh #d4af37;
+            position: relative;
+            z-index: 10;
+            transform: translateX(-0.35vw) translateY(-22vh);
+        }
+
+        p.txtLogin {
+            margin: auto;
+            margin-top: 2.5vh;
+            margin-bottom: -23.5vh;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 5vw;
+            color: #fffafa;
+            text-align: center;
+            display: block;
+            position: relative;
+            transform: translateY(-16.5vh);
+        }
+
+        .forms {
+            top: 10vh;
+            text-align: left;
+            position: relative;
+        }
+
+        input {
+            width: calc(100% - 21.5vw);
+            height: 4vh;
+            margin: auto;
+            margin-bottom: -1vh;
+            padding: 1dvh;
+            padding-left: 7vw;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            background: #fffafa;
+            border: none;
+            border-radius: 1.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        input:hover {
+            outline: 0.3vh solid #f5bf03;
+        }
+
+        input::placeholder {
+            color: black;
+        }
+
+        .input-icon {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .input-icon i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-55%);
+            left: 8.35vw;
+            color: #020035;
+        }
+
+        input[type="checkbox"] {
+            width: 1vw;
+            top: 2.5vh;
+            right: 54vw;
+            background-color: white;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: white;
+        }
+
+        input[type="checkbox"]:checked::before {
+            width: 100%;
+            height: 100%;
+            content: "\2713";
+            font-size: 4.5vw;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        label.lblRememberMe {
+            left: 16.75vw;
+            bottom: 0.6vh;
+            margin: auto;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            color: #fffafa;
+            position: relative;
+        }
+
+        .lblForgotPassword {
+            left: 35.5vw;
+            bottom: 0.6vh;
+            margin: auto;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            color: #f5bf03;
+            position: relative;
+        }
+
+        a:hover .lblForgotPassword {
+            color: #fffafa;
+        }
+
+        button#login {
+            width: calc(100% - 13vw);
+            height: 6.5vh;
+            margin: auto;
+            margin-top: 2.5vh;
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            background-image: linear-gradient(to right, #d4af37, #020035);
+            outline: none;
+            border: 1px solid rgba(212, 175, 55, 1);
+            border-radius: 7.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+            transition: box-shadow 0.3s ease;
+            transition: 0.5s;
+        }
+
+        p.txtNoAccount {
+            margin: auto;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            color: #fffafa;
+            text-align: center;
+            display: block;
+            position: relative;
+            transform: translateY(16vh);
+        }
+
+        #signup {
+            color: #f5bf03;
+        }
+
+        #signup:hover {
+            color: #fffafa;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .txtOrLoginInWith {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            color: #fffafa;
+            text-align: center;
+            position: relative;
+            transform: translateY(-2.5vh)
+        }
+
+        .txtOrLoginInWith::before,
+        .txtOrLoginInWith::after {
+            content: "";
+            position: absolute;
+            top: 1vh;
+            width: 33.5vw;
+            height: 0.2vh;
+            background-color: #fffafa;
+            margin-left: 1.5vw;
+            margin-right: 1.5vw;
+        }
+
+        .txtOrLoginInWith::before {
+            left: 0;
+        }
+
+        .txtOrLoginInWith::after {
+            right: 0;
+        }
+
+        .social {
+            margin: auto;
+            text-align: center;
+            display: inline-block;
+            position: relative;
+            transform: translateX(42vw) translateY(-2.25vh);
+        }
+
+        .social i {
+            margin: auto;
+            top: auto;
+            font-size: 10.5vw;
+            color: #f5bf03;
+            position: relative;
+        }
+    }
+</style>

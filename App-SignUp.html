@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PASA-HERE-O! - App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Roboto&family=Proxima+Nova:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <a href="App-Login.html" class="back-button">
+        <i class="fas fa-chevron-left"></i>
+    </a>
+    <div class="container">
+        <p class="txtSignUp">Sign Up</p>
+        <div class="input-icon">
+            <i class="fas fa-user fullname-icon"></i>
+            <input type="text" placeholder="Full Name" id="fullname" />
+        </div>
+        <br>
+        <div class="input-icon">
+            <input type="date" placeholder="Birthdate" class="birthdate-input" id="birthdate" />
+        </div>
+        <br>
+        <div class="input-icon">
+            <label class="lblMale"><input type="checkbox">Male</label>
+            <br>
+            <label class="lblFemale"><input type="checkbox">Female</label>
+        </div>
+        <br>
+        <div class="input-icon">
+            <i class="fas fa-phone phone-icon"></i>
+            <input type="number" placeholder="Phone Number" class="number-input" id="phone" />
+        </div>
+        <br>
+        <div class="input-icon">
+            <i class="fas fa-user username-icon"></i>
+            <input type="text" placeholder="Username" class="username-input" id="username" />
+        </div>
+        <br>
+        <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" class="password-input" id="password" />
+        </div>
+        <br>
+        <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Confirm Password" class="confirm-input" id="confirm-password" />
+        </div>
+        <br>
+        <p class="txtEmergency">Emergency Contact</p>
+        <div class="input-icon">
+            <i class="fas fa-user  fullname-icon second-fullname-icon"></i>
+            <input type="text" placeholder="Full Name" class="emergency-input" id="emergency-name" />
+        </div>
+        <br>
+        <div class="input-icon">
+            <i class="fas fa-user relationship-icon"></i>
+            <input type="text" placeholder="Relationship" class="relationship-input" id="relationship" />
+        </div>
+        <br>
+        <div class="input-icon">
+            <i class="fas fa-phone phone-icon second-phone-icon"></i>
+            <input type="number" placeholder="Phone Number" class="e-number-input" id="emergency-phone" />
+        </div>
+        <br>
+        <a href="App-Login.html" id="submit-anchor"><button id="submit" disabled>SUBMIT</button></a>
+        <br>
+    </div>
+
+    <div id="overview" class="container" style="display: none;">
+        <p class="txtSignUp">Overview</p>
+        <div id="overview-details"></div>
+        <br>
+        <button onclick="editDetails()">Edit Details</button>
+        <br>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Add your form submission logic here
+            alert('Form submitted! Redirecting to login page.');
+            window.location.href = "App-Login.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputs = document.querySelectorAll("input[type='text'], input[type='date'], input[type='number'], input[type='password']");
+            const submitButton = document.getElementById("submit");
+            const submitAnchor = document.getElementById("submit-anchor");
+
+            function checkInputs() {
+                let allFilled = true;
+                inputs.forEach(input => {
+                    if (input.value.trim() === "") {
+                        allFilled = false;
+                    }
+                });
+                submitButton.disabled = !allFilled;
+                if (allFilled) {
+                    submitAnchor.removeAttribute("href");
+                    submitAnchor.addEventListener("click", submitForm);
+                } else {
+                    submitAnchor.setAttribute("href", "App-Login.html");
+                    submitAnchor.removeEventListener("click", submitForm);
+                }
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener("input", checkInputs);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+<style>
+    @media screen and (max-width: 415px) and (max-height: 897px) {
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://i.ibb.co/86qT6BZ/pexels-jovan-curayag-3361178.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.5), rgba(2, 0, 53, 0.3));
+            content: "";
+            position: fixed;
+            z-index: 1;
+        }
+
+        .back-button {
+            top: 0;
+            left: 0;
+            margin: 10px;
+            z-index: 10;
+            font-size: 24px;
+            color: #f5bf03;
+            text-decoration: none;
+            position: fixed;
+        }
+
+        .back-button:hover {
+            color: #fffafa;
+        }
+
+        .container {
+            margin: auto;
+            margin-top: 1vh;
+            width: 96%;
+            max-width: 414px;
+            height: 91.5vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 4.5vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0.4vh 0.4vh 1vh #020035, -0.1vh -0.1vh 1vh #d4af37;
+            position: relative;
+            z-index: 10;
+            transform: translateX(-0.35vw) translateY(6vh);
+            overflow-x: hidden;
+        }
+
+        p.txtSignUp {
+            margin: auto;
+            margin-top: -5vh;
+            margin-bottom: 26.25vh;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 5vw;
+            color: #fffafa;
+            text-align: center;
+            display: block;
+            position: relative;
+            transform: translateY(26vh);
+        }
+
+        p.txtEmergency {
+            margin: auto;
+            margin-top: -4.75vh;
+            margin-bottom: 3.5vh;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 5vw;
+            color: #fffafa;
+            text-align: center;
+            display: block;
+            position: relative;
+            transform: translateY(3.5vh);
+        }
+
+        input {
+            width: calc(100% - 21.5vw);
+            height: 4vh;
+            margin: auto;
+            margin-bottom: -1vh;
+            padding: 1dvh;
+            padding-left: 7vw;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            background: white;
+            border: none;
+            border-radius: 1.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .birthdate-input {
+            width: calc(100% - 50vw);
+            height: 7vh;
+            margin: auto;
+            margin-top: -12vh;
+            padding: 1dvh;
+            padding-left: 7vw;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            background: white;
+            border: none;
+            border-radius: 1.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+            transform: translateX(14.25vw) translateY(12vh);
+            position: relative;
+            z-index: 15;
+        }
+
+        .number-input {
+            width: calc(100% - 21.5vw);
+            height: 4vh;
+            margin: auto;
+            margin-top: -8vh;
+            margin-bottom: -1vh;
+            padding: 1dvh;
+            padding-left: 7vw;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            background: white;
+            border: none;
+            border-radius: 1.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .username-input {
+            width: calc(100% - 21.5vw);
+            height: 4vh;
+            margin: auto;
+            margin-top: -5.80vh;
+            margin-bottom: -1vh;
+            padding: 1dvh;
+            padding-left: 7vw;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            background: white;
+            border: none;
+            border-radius: 1.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .password-input {
+            width: calc(100% - 21.5vw);
+            height: 4vh;
+            margin: auto;
+            margin-top: -2.75vh;
+            margin-bottom: -1vh;
+            padding: 1dvh;
+            padding-left: 7vw;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            background: white;
+            border: none;
+            border-radius: 1.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .confirm-input {
+            width: calc(100% - 21.5vw);
+            height: 4vh;
+            margin: auto;
+            margin-top: -2.6vh;
+            margin-bottom: -1vh;
+            padding: 1dvh;
+            padding-left: 7vw;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            background: white;
+            border: none;
+            border-radius: 1.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .emergency-input {
+            margin-bottom: -3.75vh;
+        }
+
+        input:hover {
+            outline: 0.3vh solid #f5bf03;
+        }
+
+        input::placeholder {
+            color: black;
+        }
+
+        .input-icon {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .input-icon i {
+            position: relative;
+            top: 50%;
+            transform: translateY(-35%);
+            left: 8.35vw;
+            color: #020035;
+        }
+
+        .input-icon .fullname-icon {
+            transform: translateY(0.4vh)
+        }
+
+        .input-icon .second-fullname-icon {
+            transform: translateY(1.9vh)
+        }
+
+        .input-icon .username-icon {
+            transform: translateY(-2.5vh)
+        }
+
+        .input-icon .relationship-icon {
+            transform: translateY(0.4vh)
+        }
+
+        .input-icon .phone-icon {
+            left: 8vw;
+            top: 50%;
+            transform: translateY(-6.25vh) rotate(100deg);
+            color: #020035;
+            position: absolute;
+        }
+
+        .input-icon .second-phone-icon {
+            transform: rotate(100deg);
+            left: 9vw;
+            bottom: 1.4vh;
+            color: #020035;
+        }
+
+        input[type="checkbox"] {
+            width: 1vw;
+            top: 2.5vh;
+            right: 54vw;
+            background-color: white;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: white;
+        }
+
+        input[type="checkbox"]:checked::before {
+            width: 100%;
+            height: 100%;
+            content: "\2713";
+            font-size: 4.5vw;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        label.lblMale {
+            left: 16.75vw;
+            bottom: 7.15vh;
+            margin: auto;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            color: #fffafa;
+            position: relative;
+        }
+
+        label.lblFemale {
+            left: 16.75vw;
+            bottom: 7.25vh;
+            margin: auto;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3.5vw;
+            color: #fffafa;
+            position: relative;
+        }
+
+        button#submit {
+            width: calc(100% - 13vw);
+            height: 6.5vh;
+            margin: auto;
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            background-image: linear-gradient(to right, #d4af37, #020035);
+            outline: none;
+            border: 1px solid rgba(212, 175, 55, 1);
+            border-radius: 7.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+            transition: box-shadow 0.3s ease;
+            transition: 0.5s;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+</style>

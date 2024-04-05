@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PASA-HERE-O! - App</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Roboto&family=Proxima+Nova:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Roboto&family=Proxima+Nova:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+
+    <a href="UI.html" class="back-button">
+        <i class="fas fa-chevron-left"></i>
+    </a>
+
+    <div class="container">
+        <div class="profile">
+            <h2 class="hprofile">Profile</h2>
+        </div>
+        <div class="history">
+            <h2 class="hhistory">History</h2>
+        </div>
+        <div class="help">
+            <h2 class="hhelp">Help Center</h2>
+        </div>
+        <div class="settings">
+            <h2 class="hsettings">Settings</h2>
+        </div>
+
+        <a href="App-Login.html"><button id="logout">LOGOUT</button></a>
+    </div>
+
+    <div class="navbar">
+        <a href="UI.html" class="navbar-home"><i class="fas fa-home"></i></a>
+        <a href="#" class="navbar-menu"><i class="fas fa-bars"></i></a>
+        <div class="navbar-circle"></div>
+    </div>
+
+    <div class="circle"></div>
+    <button id="btnStart"><i class="fas fa-play"></i></button>
+
+</body>
+
+</html>
+
+<style>
+    @media screen and (max-width: 415px) and (max-height: 897px) {
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://i.ibb.co/86qT6BZ/pexels-jovan-curayag-3361178.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.5), rgba(2, 0, 53, 0.3));
+            content: "";
+            position: fixed;
+            z-index: 1;
+        }
+
+        .back-button {
+            top: 0;
+            left: 0;
+            margin: 10px;
+            z-index: 10;
+            font-size: 24px;
+            color: #f5bf03;
+            text-decoration: none;
+            position: fixed;
+        }
+
+        .back-button:hover {
+            color: #fffafa;
+        }
+
+        button#logout {
+            width: calc(100% - 13vw);
+            height: 6.5vh;
+            margin: auto;
+            margin-top: 2.5vh;
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            background-image: linear-gradient(to right, #d4af37, #020035);
+            outline: none;
+            border: 1px solid rgba(212, 175, 55, 1);
+            border-radius: 7.5vh;
+            display: block;
+            box-shadow: 0.4vh 0.4vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+            transition: box-shadow 0.3s ease;
+            transition: 0.5s;
+            position: absolute;
+            transform: translateX(6.6vw);
+        }
+
+        .circle {
+            width: 18.5vw;
+            height: 8.95vh;
+            background-color: #fffafa;
+            border-radius: 50%;
+            margin: auto;
+            position: fixed;
+            z-index: 10;
+            top: 89.025vh;
+            left: 41.20vw;
+            filter: drop-shadow(0.2vh 0.2vh 0.8vh rgb(0, 0, 0, 0.8));
+            z-index: 6;
+        }
+
+        .container {
+            margin: auto;
+            margin-top: 1vh;
+            width: 96%;
+            max-width: 414px;
+            height: 91.5vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 4.5vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0.4vh 0.4vh 1vh #020035, -0.1vh -0.1vh 1vh #d4af37;
+            position: relative;
+            z-index: 2;
+            transform: translateX(-0.35vw) translateY(6vh);
+            overflow-x: hidden;
+        }
+        .profile {
+            width: 45%;
+            height: 11vh;
+            background-color: #fffafa;
+            border-radius: 3.5vh;
+            transform: translateX(2.75vw) translateY(-22.3vh);
+            box-shadow: 0.1vh 0.1vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .help {
+            width: 45%;
+            height: 11vh;
+            background-color: #fffafa;
+            border-radius: 3.5vh;
+            transform: translateX(2.75vw) translateY(-31.3vh);
+            box-shadow: 0.1vh 0.1vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .history {
+            width: 45%;
+            height: 11vh;
+            background-color: #fffafa;
+            border-radius: 3.5vh;
+            transform: translateX(50vw) translateY(-33.3vh);
+            box-shadow: 0.1vh 0.1vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .settings {
+            width: 45%;
+            height: 11vh;
+            background-color: #fffafa;
+            border-radius: 3.5vh;
+            transform: translateX(50vw) translateY(-42.3vh);
+            box-shadow: 0.1vh 0.1vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        label.hprofile {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 4.5vw;
+            text-align: center;
+            position: relative;
+        }
+
+        label.hhistory {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 4.5vw;
+            text-align: center;
+            position: relative;
+        }
+
+        label.hhelp {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 4.5vw;
+            text-align: center;
+            position: relative;
+        }
+
+        label.hsettings {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 4.5vw;
+            text-align: center;
+            position: relative;
+        }
+
+        .navbar {
+            margin: auto;
+            width: 100%;
+            height: 8vh;
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(to right, #d4af37, #020035);
+            border-top-left-radius: 3vh;
+            border-top-right-radius: 3vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            z-index: 4;
+            box-shadow: 0.1vh 0.1vh 1vh #000000, -0.1vh -0.1vh 1vh #000000;
+        }
+
+        .navbar-home {
+            color: #fffafa;
+            text-decoration: none;
+            padding: 2vh;
+            transition: background-color 0.3s ease;
+            font-size: 6vw;
+            transform: translateX(14vw);
+            filter: drop-shadow(0.2vh 0.2vh 0.8vh rgba(0, 0, 0, 0.5));
+        }
+
+        .navbar-menu {
+            color: #fffafa;
+            text-decoration: none;
+            padding: 2vh;
+            transition: background-color 0.3s ease;
+            font-size: 6vw;
+            transform: translateX(60vw);
+            filter: drop-shadow(0.2vh 0.2vh 0.8vh rgba(0, 0, 0, 0.5));
+        }
+
+        .navbar-home:hover {
+            background-color: #555;
+        }
+
+        .navbar-menu:hover {
+            background-color: #555;
+        }
+
+
+        .navbar-circle {
+            margin: auto;
+            width: 20%;
+            height: 10vh;
+            background: linear-gradient(to right, rgba(212, 175, 55, 1), rgba(2, 0, 53, 1));
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            top: -3.5vh;
+            right: 12.25vw;
+            z-index: 5;
+        }
+
+        #btnStart {
+            margin: auto;
+            font-size: 8vw;
+            bottom: 10vh;
+            position: fixed;
+            z-index: 100;
+            transform: translateX(46vw) translateY(6.25vh);
+            background: none;
+            border: none;
+            color: #d4af37;
+            filter: drop-shadow(0.2vh 0.2vh 0.8vh rgba(0, 0, 0, 0.5));
+        }
+
+        .fas.fa-stop {
+            color: #020035;
+            transform: translateX(-.5vw);
+        }
+
+        #distance {
+            font-family: 'Roboto', sans-serif;
+            font-size: 80%;
+            margin-bottom: 5px;
+        }
+
+        #time {
+            font-family: 'Roboto', sans-serif;
+            font-size: 80%;
+            margin-bottom: 20px;
+        }
+
+        #directions-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        #directions-list li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .icon {
+            color: #fff;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            z-index: 14;
+        }
+    }
+</style>
